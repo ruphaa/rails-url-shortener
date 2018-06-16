@@ -1,0 +1,12 @@
+
+<form name="url" class="url-form">
+    <div class="input-wrapper">
+        <input type="text" id="url-input" name="url-input" class="url-input" required/>
+    </div>
+    {{#if errors}}
+        <p class='error-messages'></p>
+    {{/if}}
+    <div class='shorten-button'>
+        <input type="button" value="Shorten" id="submit_btn"/>
+    </div>
+</form>

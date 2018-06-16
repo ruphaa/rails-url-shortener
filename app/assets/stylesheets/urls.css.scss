@@ -1,0 +1,175 @@
+/* // Place all the styles related to the urls controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/ */
+
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+
+$primary-color: #D81B60;
+$text-color: #EC407A;
+$highlight-color: #F8BBD0;
+$font-size: 16px;
+$bg-color: #FFFFFF;
+$default-black: black;
+$font-family: 'Josefin Sans', sans-serif;
+
+%flex-parent-properties {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+%button-properties {
+  background-color: #f2f2f2;
+  color: #757575;
+  font-size: 0.95rem;
+  font-family: arial,sans-serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+@mixin border-properties($border-color,$border-radius) {
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+}
+
+
+@keyframes growIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.go-grow {
+  animation: growIn 3s ease;
+}
+
+
+html {
+  font-size: $font-size;
+}
+  
+  body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    min-height: 100vh;
+    background-color: #E5E5E5;
+  }
+  
+  .container {
+    @include border-properties(#d3d5df, 0);
+    width: 500px;
+    height: 500px;
+    background-color: #FFFFFF;
+    margin:0 auto;
+    margin-top: 90px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    
+    .url-wrapper {
+      @extend %flex-parent-properties;
+      
+      .heading {
+        background-color: $primary-color;
+        width: 100%;
+        text-align: center;
+        color: #FFFFFF;
+        // font-family: 'Vollkorn', serif;
+        font-family: $font-family;
+      }
+
+      .url-form {
+        @extend %flex-parent-properties;
+        width: 100%;
+        margin-top: 1.5rem;
+        .input-wrapper {
+          height: 45px;
+          width: 100%;
+          border-radius: 2px;
+          box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+          margin-top: 3rem;
+          padding: 0 1rem;
+
+          input {
+            border: none;
+            color: #37474F;
+            height: 95%;
+            width: 95%;
+            font-size: 1.25rem;
+            text-decoration: none;
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+  
+
+  input:focus,
+  select:focus,
+  textarea:focus,
+  button:focus {
+      outline: none;
+  }
+  
+  .shorten-button input[type="button"] {
+    @extend %button-properties;
+    @include border-properties(#f2f2f2, 2px);
+    height: 40px;
+    line-height: 30px;
+    padding: 0 1rem;
+    margin: 2rem 0.5rem;
+    min-width: 54px;
+    cursor: pointer;
+  }
+  
+  .shorten-button input[type="button"]:hover {
+    @include border-properties(#c6c6c6, 1px);
+    background-color: #f8f8f8;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    color: #222;
+  }
+  
+  .link {
+    width: 80%;
+    margin: 0 auto;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+    padding: 1rem 1rem;
+    font-family: $font-family;
+    line-height: 1.35rem;
+  }
+
+  a {
+    text-decoration: none;
+    color: $default-black;
+  }
+
+  .highlight {
+    background-color: $highlight-color;
+  }
+
+  .url-link {
+    text-decoration: none;
+    color: $text-color;
+    cursor: pointer;
+  }
+
+  @media screen and (max-width: 600px) {
+    .container {
+      width: 350px;
+      height: 500px;
+      margin:0 auto;
+      margin-top: 90px;
+    }
+  }
+
+  #form-wrapper {
+    width: 75%;
+  }
